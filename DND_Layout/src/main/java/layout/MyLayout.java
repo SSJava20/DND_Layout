@@ -112,10 +112,8 @@ public class MyLayout implements LayoutManager {
      */
     public void layoutContainer(Container parent) {
         Insets insets = parent.getInsets();
-        int maxWidth = parent.getWidth()
-                       - (insets.left + insets.right);
-        int maxHeight = parent.getHeight()
-                        - (insets.top + insets.bottom);
+        int maxWidth = parent.getWidth();
+        int maxHeight = parent.getHeight();
         int nComps = parent.getComponentCount();
         int previousWidth = 0, previousHeight = 0;
         int x = 0, y = insets.top;
