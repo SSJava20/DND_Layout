@@ -3,6 +3,8 @@
  */
 package gui;
 
+import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.EventQueue;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -68,6 +70,12 @@ public class View {
 	 */
 	public View() {
 		initialize();
+		for (int i = 0; i < CONTROL_COUNT; i++) {
+			JPanel newPanel = new JPanel();
+			newPanel.setBackground(Color.blue);
+			newPanel.setPreferredSize(new Dimension(100, 100));
+			panel.add(newPanel);
+		}
 	}
 
 	/**
@@ -143,10 +151,6 @@ public class View {
 
 		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
 
-		for (int i = 0; i < CONTROL_COUNT; i++) {
-			JButton btnNew = new JButton("New button " + i);
-			panel.add(btnNew);
-		}
 		frame.getContentPane().setLayout(groupLayout);
 
 		// set handlers
@@ -198,8 +202,10 @@ public class View {
 
 		btnAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JButton button = new JButton("New button");
-				panel.add(button);
+				JPanel newPanel = new JPanel();
+				newPanel.setBackground(Color.blue);
+				newPanel.setPreferredSize(new Dimension(100, 100));
+				panel.add(newPanel);
 				panel.validate();
 			}
 		});
