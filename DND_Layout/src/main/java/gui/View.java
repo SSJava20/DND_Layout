@@ -20,6 +20,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import factory.LayoutFactory;
+import factory.PanelFactory;
 
 /**
  * @author GAL version 17.04.2012
@@ -30,6 +31,7 @@ public class View {
 	private JPanel panel;
 
 	private static final int CONTROL_COUNT = 5;
+	private static final int CONTROL_SIZE = 20;
 
 	/**
 	 * Launch the application.
@@ -71,10 +73,7 @@ public class View {
 	public View() {
 		initialize();
 		for (int i = 0; i < CONTROL_COUNT; i++) {
-			JPanel newPanel = new JPanel();
-			newPanel.setBackground(Color.blue);
-			newPanel.setPreferredSize(new Dimension(100, 100));
-			panel.add(newPanel);
+			panel.add(panel.add(PanelFactory.getPanel(CONTROL_SIZE)));
 		}
 	}
 
@@ -202,10 +201,7 @@ public class View {
 
 		btnAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				JPanel newPanel = new JPanel();
-				newPanel.setBackground(Color.blue);
-				newPanel.setPreferredSize(new Dimension(100, 100));
-				panel.add(newPanel);
+				panel.add(PanelFactory.getPanel(CONTROL_SIZE));
 				panel.validate();
 			}
 		});
