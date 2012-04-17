@@ -10,7 +10,6 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.BorderFactory;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
@@ -19,10 +18,8 @@ import javax.swing.JPanel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
-import javax.swing.border.Border;
 
 import factory.LayoutFactory;
-import factory.PanelFactory;
 
 /**
  * @author GAL version 17.04.2012
@@ -33,7 +30,6 @@ public class View {
 	private JPanel panel;
 
 	private static final int CONTROL_COUNT = 5;
-	private static final int CONTROL_SIZE = 20;
 
 	/**
 	 * Launch the application.
@@ -75,7 +71,10 @@ public class View {
 	public View() {
 		initialize();
 		for (int i = 0; i < CONTROL_COUNT; i++) {
-			panel.add(PanelFactory.getPanel(CONTROL_SIZE));
+			JPanel newPanel = new JPanel();
+			newPanel.setBackground(Color.blue);
+			newPanel.setPreferredSize(new Dimension(100, 100));
+			panel.add(newPanel);
 		}
 	}
 
@@ -203,7 +202,10 @@ public class View {
 
 		btnAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				panel.add(PanelFactory.getPanel(CONTROL_SIZE));
+				JPanel newPanel = new JPanel();
+				newPanel.setBackground(Color.blue);
+				newPanel.setPreferredSize(new Dimension(100, 100));
+				panel.add(newPanel);
 				panel.validate();
 			}
 		});
