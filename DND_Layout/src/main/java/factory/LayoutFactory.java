@@ -13,6 +13,7 @@ import javax.swing.BoxLayout;
 import javax.swing.GroupLayout;
 
 import layout.MyLayout;
+import layout.MyVerticalLayout;
 
 /**
  * @author GAL version 17.04.2012
@@ -24,6 +25,7 @@ public class LayoutFactory {
 	public static final int GRID_LAYOUT = 3;
 	public static final int BOX_LAYOUT = 4;
 	public static final int MY_LAYOUT = 5;
+	public static final int MY_VERTICAL_LAYOUT = 6;
 
 	private LayoutFactory() {
 	};
@@ -43,6 +45,9 @@ public class LayoutFactory {
 
 		case MY_LAYOUT:
 			return new MyLayout();
+
+		case MY_VERTICAL_LAYOUT:
+			return new MyVerticalLayout();
 
 		}
 		return null;

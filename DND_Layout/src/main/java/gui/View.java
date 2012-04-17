@@ -142,6 +142,9 @@ public class View {
 						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
 								GroupLayout.PREFERRED_SIZE)));
 
+		JButton btnMyVertLayout = new JButton("My Vertical layout");
+		pnlButtons.add(btnMyVertLayout);
+
 		JButton btnAddButton = new JButton("Add button");
 		panel_1.add(btnAddButton);
 
@@ -186,6 +189,13 @@ public class View {
 		btnMyLayout.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				panel.setLayout(LayoutFactory.getLayout(LayoutFactory.MY_LAYOUT, panel));
+				panel.validate();
+			}
+		});
+		
+		btnMyVertLayout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panel.setLayout(LayoutFactory.getLayout(LayoutFactory.MY_VERTICAL_LAYOUT, panel));
 				panel.validate();
 			}
 		});
