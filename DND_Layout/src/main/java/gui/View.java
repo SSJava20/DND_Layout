@@ -55,21 +55,9 @@ public class View {
 	 */
 	public static void main(String[] args) {
 		try {
-			for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-
-				if ("Nimbus".equals(info.getName())) {
-					UIManager.setLookAndFeel(info.getClassName());
-					break;
-				} else {
-					UIManager.setLookAndFeel("com.sun.java.swing.plaf.windows.WindowsLookAndFeel");
-				}
-			}
-
+			UIManager.setLookAndFeel("com.seaglasslookandfeel.SeaGlassLookAndFeel");
 		} catch (Exception e) {
-			// If Nimbus is not available, you can set the GUI to another look
-			// and
-			// feel
-
+			e.printStackTrace();
 		}
 
 		EventQueue.invokeLater(new Runnable() {
@@ -124,35 +112,65 @@ public class View {
 		pnlSource = new JPanel();
 		pnlSource.setBackground(Color.ORANGE);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout.setHorizontalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addGroup(groupLayout.createSequentialGroup()
-							.addGap(10)
-							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-								.addGroup(groupLayout.createSequentialGroup()
-									.addComponent(pnlDestination, GroupLayout.DEFAULT_SIZE, 351, Short.MAX_VALUE)
-									.addPreferredGap(ComponentPlacement.UNRELATED)
-									.addComponent(pnlSource, GroupLayout.DEFAULT_SIZE, 341, Short.MAX_VALUE))
-								.addComponent(pnlButtons, GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)))
-						.addGroup(groupLayout.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(pnlControls, GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)))
-					.addContainerGap())
-		);
-		groupLayout.setVerticalGroup(
-			groupLayout.createParallelGroup(Alignment.LEADING)
-				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(pnlButtons, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(pnlControls, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(pnlDestination, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
-						.addComponent(pnlSource, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
-					.addGap(34))
-		);
+		groupLayout
+				.setHorizontalGroup(groupLayout
+						.createParallelGroup(Alignment.LEADING)
+						.addGroup(
+								groupLayout
+										.createSequentialGroup()
+										.addGroup(
+												groupLayout
+														.createParallelGroup(Alignment.LEADING)
+														.addGroup(
+																groupLayout
+																		.createSequentialGroup()
+																		.addGap(10)
+																		.addGroup(
+																				groupLayout
+																						.createParallelGroup(
+																								Alignment.LEADING)
+																						.addGroup(
+																								groupLayout
+																										.createSequentialGroup()
+																										.addComponent(
+																												pnlDestination,
+																												GroupLayout.DEFAULT_SIZE,
+																												351,
+																												Short.MAX_VALUE)
+																										.addPreferredGap(
+																												ComponentPlacement.UNRELATED)
+																										.addComponent(
+																												pnlSource,
+																												GroupLayout.DEFAULT_SIZE,
+																												341,
+																												Short.MAX_VALUE))
+																						.addComponent(
+																								pnlButtons,
+																								GroupLayout.DEFAULT_SIZE,
+																								702, Short.MAX_VALUE)))
+														.addGroup(
+																groupLayout
+																		.createSequentialGroup()
+																		.addContainerGap()
+																		.addComponent(pnlControls,
+																				GroupLayout.DEFAULT_SIZE, 702,
+																				Short.MAX_VALUE))).addContainerGap()));
+		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
+				groupLayout
+						.createSequentialGroup()
+						.addComponent(pnlButtons, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addComponent(pnlControls, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
+								GroupLayout.PREFERRED_SIZE)
+						.addPreferredGap(ComponentPlacement.RELATED)
+						.addGroup(
+								groupLayout
+										.createParallelGroup(Alignment.LEADING)
+										.addComponent(pnlDestination, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
+												302, Short.MAX_VALUE)
+										.addComponent(pnlSource, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
+						.addGap(34)));
 
 		pnlDestination.setTransferHandler(new PanelTransferHandler());
 		pnlSource.setTransferHandler(new PanelTransferHandler());
@@ -303,9 +321,8 @@ public class View {
 			}
 		}
 	}
-	
-	private JPanel generateDND_Panel()
-	{
+
+	private JPanel generateDND_Panel() {
 		JPanel jPanel = PanelFactory.getPanel(CONTROL_SIZE);
 		jPanel.setTransferHandler(new MyTransferHandler());
 		jPanel.addMouseListener(new MyMouseHandler());
