@@ -79,6 +79,7 @@ public class View {
 		initialize();
 		for (int i = 0; i < CONTROL_COUNT; i++) {
 			pnlSource.add(pnlSource.add(generateDND_Panel()));
+			pnlSource.validate();
 		}
 	}
 
@@ -112,65 +113,36 @@ public class View {
 		pnlSource = new JPanel();
 		pnlSource.setBackground(Color.ORANGE);
 		GroupLayout groupLayout = new GroupLayout(frame.getContentPane());
-		groupLayout
-				.setHorizontalGroup(groupLayout
-						.createParallelGroup(Alignment.LEADING)
-						.addGroup(
-								groupLayout
-										.createSequentialGroup()
-										.addGroup(
-												groupLayout
-														.createParallelGroup(Alignment.LEADING)
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addGap(10)
-																		.addGroup(
-																				groupLayout
-																						.createParallelGroup(
-																								Alignment.LEADING)
-																						.addGroup(
-																								groupLayout
-																										.createSequentialGroup()
-																										.addComponent(
-																												pnlDestination,
-																												GroupLayout.DEFAULT_SIZE,
-																												351,
-																												Short.MAX_VALUE)
-																										.addPreferredGap(
-																												ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												pnlSource,
-																												GroupLayout.DEFAULT_SIZE,
-																												341,
-																												Short.MAX_VALUE))
-																						.addComponent(
-																								pnlButtons,
-																								GroupLayout.DEFAULT_SIZE,
-																								702, Short.MAX_VALUE)))
-														.addGroup(
-																groupLayout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(pnlControls,
-																				GroupLayout.DEFAULT_SIZE, 702,
-																				Short.MAX_VALUE))).addContainerGap()));
-		groupLayout.setVerticalGroup(groupLayout.createParallelGroup(Alignment.LEADING).addGroup(
-				groupLayout
-						.createSequentialGroup()
-						.addComponent(pnlButtons, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addComponent(pnlControls, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE,
-								GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(ComponentPlacement.RELATED)
-						.addGroup(
-								groupLayout
-										.createParallelGroup(Alignment.LEADING)
-										.addComponent(pnlDestination, Alignment.TRAILING, GroupLayout.DEFAULT_SIZE,
-												302, Short.MAX_VALUE)
-										.addComponent(pnlSource, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
-						.addGap(34)));
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(10)
+							.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+								.addGroup(Alignment.TRAILING, groupLayout.createSequentialGroup()
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addComponent(pnlDestination, GroupLayout.PREFERRED_SIZE, 342, GroupLayout.PREFERRED_SIZE)
+									.addPreferredGap(ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+									.addComponent(pnlSource, GroupLayout.PREFERRED_SIZE, 329, GroupLayout.PREFERRED_SIZE))
+								.addComponent(pnlButtons, GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(pnlControls, GroupLayout.DEFAULT_SIZE, 702, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addComponent(pnlButtons, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addComponent(pnlControls, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addComponent(pnlSource, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE)
+						.addComponent(pnlDestination, GroupLayout.DEFAULT_SIZE, 302, Short.MAX_VALUE))
+					.addContainerGap())
+		);
 
 		pnlDestination.setTransferHandler(new PanelTransferHandler());
 		pnlSource.setTransferHandler(new PanelTransferHandler());
@@ -247,7 +219,7 @@ public class View {
 		btnAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				pnlSource.add(pnlSource.add(generateDND_Panel()));
-				pnlDestination.validate();
+				pnlSource.validate();
 			}
 		});
 	}
