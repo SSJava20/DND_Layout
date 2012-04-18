@@ -78,6 +78,7 @@ private int vgap;
 		}
 		int lastY = 0;
 		int lastX = 0;
+                int lastMaxW = 0;
 		int nComps = parent.getComponentCount();
 
 		for (int i = 0; i < nComps; i++) {
@@ -89,12 +90,16 @@ private int vgap;
 			if (parent.getHeight() < lastY + d.height) {
 				System.out.println("FUCK");
 				lastY = 0;
-				lastX += d.width;
+				lastX += lastMaxW;
 
 			}
 			c.setBounds(lastX, lastY, d.width, d.height);
 
 			lastY += d.height;
+                        if ( lastMaxW<d.width)
+                        {
+                            lastMaxW = d.width;
+                        }
 //			System.out.println(lastY);
 		}
 		System.out.print(preferredLayoutSize(parent).height + " : ");

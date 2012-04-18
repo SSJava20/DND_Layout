@@ -30,7 +30,7 @@ public class View {
 	private JFrame frame;
 	private JPanel panel;
 
-	private static final int CONTROL_COUNT = 5;
+	private static final int CONTROL_COUNT = 30;
 	private static final int CONTROL_SIZE = 20;
 
 	/**
