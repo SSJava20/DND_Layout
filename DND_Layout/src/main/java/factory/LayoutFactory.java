@@ -33,7 +33,7 @@ public class LayoutFactory {
 	public static LayoutManager getLayout(int layout, Container parent) {
 		switch (layout) {
 		case GRID_BAG_LAYOUT:
-			return new GridBagLayout();
+			return null;
 		case FLOW_LAYOUT:
 			return new FlowLayout();
 
